@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
 
-/**
- *
- * @author wasch
- */
 public class JFmainDashBoard extends javax.swing.JFrame {
 
     /**
@@ -44,12 +36,15 @@ public class JFmainDashBoard extends javax.swing.JFrame {
         pnlMenuOptions.setName("pMenu"); // NOI18N
 
         btnBooks.setBackground(new java.awt.Color(233, 227, 220));
+        btnBooks.setForeground(java.awt.SystemColor.textText);
         btnBooks.setText("Book Management");
 
         btnBorrowers.setBackground(new java.awt.Color(235, 231, 226));
+        btnBorrowers.setForeground(java.awt.SystemColor.textText);
         btnBorrowers.setText("Borrower Management");
 
         btnExit.setBackground(new java.awt.Color(239, 232, 225));
+        btnExit.setForeground(java.awt.SystemColor.textText);
         btnExit.setText("Exit");
 
         pnlMenu.setBackground(new java.awt.Color(102, 0, 0));
@@ -117,8 +112,6 @@ public class JFmainDashBoard extends javax.swing.JFrame {
 
         lbl_Image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/GreatWorks.jpg"))); // NOI18N
         lbl_Image.setMaximumSize(new java.awt.Dimension(1024, 1024));
-        lbl_Image.setMinimumSize(new java.awt.Dimension(341, 341));
-        lbl_Image.setPreferredSize(new java.awt.Dimension(341, 341));
 
         javax.swing.GroupLayout pnl_ImageLayout = new javax.swing.GroupLayout(pnl_Image);
         pnl_Image.setLayout(pnl_ImageLayout);
