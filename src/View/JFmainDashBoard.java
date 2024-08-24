@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
 
-/**
- *
- * @author wasch
- */
 public class JFmainDashBoard extends javax.swing.JFrame {
 
     /**
@@ -26,98 +18,157 @@ public class JFmainDashBoard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        pnlMenuOptions = new javax.swing.JPanel();
+        btnBooks = new javax.swing.JButton();
+        btnBorrowers = new javax.swing.JButton();
+        btnExitMain = new javax.swing.JButton();
+        pnlMenu = new javax.swing.JPanel();
+        lblMenu = new javax.swing.JLabel();
+        pnl_Image = new javax.swing.JPanel();
+        lbl_Image = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main page");
         setBackground(new java.awt.Color(223, 206, 206));
         setName("fMainDashboard"); // NOI18N
 
-        jPanel1.setBackground(new java.awt.Color(218, 201, 201));
-        jPanel1.setName("pMenu"); // NOI18N
+        pnlMenuOptions.setBackground(new java.awt.Color(218, 201, 201));
+        pnlMenuOptions.setName("pMenu"); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(233, 227, 220));
-        jButton1.setText("Book Management");
+        btnBooks.setBackground(new java.awt.Color(233, 227, 220));
+        btnBooks.setText("Book Management");
+        btnBooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBooksActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(235, 231, 226));
-        jButton2.setText("Borrower Management");
+        btnBorrowers.setBackground(new java.awt.Color(235, 231, 226));
+        btnBorrowers.setText("Borrower Management");
+        btnBorrowers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrowersActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setBackground(new java.awt.Color(201, 182, 182));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel2.setText("Please select an option:");
+        btnExitMain.setBackground(new java.awt.Color(239, 232, 225));
+        btnExitMain.setText("Exit");
+        btnExitMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitMainActionPerformed(evt);
+            }
+        });
 
-        jButton3.setBackground(new java.awt.Color(239, 232, 225));
-        jButton3.setText("Exit");
+        pnlMenu.setBackground(new java.awt.Color(102, 0, 0));
+        pnlMenu.setForeground(new java.awt.Color(218, 201, 201));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+        lblMenu.setBackground(new java.awt.Color(218, 201, 201));
+        lblMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblMenu.setForeground(new java.awt.Color(218, 201, 201));
+        lblMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMenu.setText("Please select an option:");
+
+        javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
+        pnlMenu.setLayout(pnlMenuLayout);
+        pnlMenuLayout.setHorizontalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+        pnlMenuLayout.setVerticalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMenuLayout.createSequentialGroup()
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(lblMenu)
+                .addContainerGap())
+        );
+
+        lblMenu.getAccessibleContext().setAccessibleName("lblMenu");
+
+        javax.swing.GroupLayout pnlMenuOptionsLayout = new javax.swing.GroupLayout(pnlMenuOptions);
+        pnlMenuOptions.setLayout(pnlMenuOptionsLayout);
+        pnlMenuOptionsLayout.setHorizontalGroup(
+            pnlMenuOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuOptionsLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(btnExitMain, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMenuOptionsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlMenuOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBorrowers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
+        );
+        pnlMenuOptionsLayout.setVerticalGroup(
+            pnlMenuOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuOptionsLayout.createSequentialGroup()
+                .addComponent(pnlMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(btnBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addComponent(btnBorrowers, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(btnExitMain, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.getAccessibleContext().setAccessibleName("btnBooks");
-        jButton2.getAccessibleContext().setAccessibleName("btnBorrowers");
-        jLabel2.getAccessibleContext().setAccessibleName("lblMenu");
-        jButton3.getAccessibleContext().setAccessibleName("btnExit");
+        btnBooks.getAccessibleContext().setAccessibleName("btnBooks");
+        btnBorrowers.getAccessibleContext().setAccessibleName("btnBorrowers");
+        btnExitMain.getAccessibleContext().setAccessibleName("btnExit");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/GreatWorks.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        pnl_Image.setBackground(new java.awt.Color(0, 0, 0));
+
+        lbl_Image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/GreatWorks.jpg"))); // NOI18N
+        lbl_Image.setMaximumSize(new java.awt.Dimension(1024, 1024));
+
+        javax.swing.GroupLayout pnl_ImageLayout = new javax.swing.GroupLayout(pnl_Image);
+        pnl_Image.setLayout(pnl_ImageLayout);
+        pnl_ImageLayout.setHorizontalGroup(
+            pnl_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_Image, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+        );
+        pnl_ImageLayout.setVerticalGroup(
+            pnl_ImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ImageLayout.createSequentialGroup()
+                .addComponent(lbl_Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        lbl_Image.getAccessibleContext().setAccessibleName("lbl_Image");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(238, Short.MAX_VALUE))
+                .addComponent(pnlMenuOptions, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnl_Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(pnlMenuOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_Image, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        jLabel1.getAccessibleContext().setAccessibleName("lbl_Image");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBooksActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBooksActionPerformed
+
+    private void btnBorrowersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrowersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBorrowersActionPerformed
+
+    private void btnExitMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitMainActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitMainActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,11 +206,13 @@ public class JFmainDashBoard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnBooks;
+    private javax.swing.JButton btnBorrowers;
+    private javax.swing.JButton btnExitMain;
+    private javax.swing.JLabel lblMenu;
+    private javax.swing.JLabel lbl_Image;
+    private javax.swing.JPanel pnlMenu;
+    private javax.swing.JPanel pnlMenuOptions;
+    private javax.swing.JPanel pnl_Image;
     // End of variables declaration//GEN-END:variables
 }
