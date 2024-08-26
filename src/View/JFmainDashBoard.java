@@ -36,15 +36,22 @@ public class JFmainDashBoard extends javax.swing.JFrame {
         pnlMenuOptions.setName("pMenu"); // NOI18N
 
         btnBooks.setBackground(new java.awt.Color(233, 227, 220));
-        btnBooks.setForeground(java.awt.SystemColor.textText);
         btnBooks.setText("Book Management");
+        btnBooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBooksActionPerformed(evt);
+            }
+        });
 
         btnBorrowers.setBackground(new java.awt.Color(235, 231, 226));
-        btnBorrowers.setForeground(java.awt.SystemColor.textText);
         btnBorrowers.setText("Borrower Management");
+        btnBorrowers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrowersActionPerformed(evt);
+            }
+        });
 
         btnExit.setBackground(new java.awt.Color(239, 232, 225));
-        btnExit.setForeground(java.awt.SystemColor.textText);
         btnExit.setText("Exit");
 
         pnlMenu.setBackground(new java.awt.Color(102, 0, 0));
@@ -145,6 +152,18 @@ public class JFmainDashBoard extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBooksActionPerformed
+        // Open the appropriate form:
+        new JFmainDashBoard().setVisible(false); //does nothing
+        new JFbooksManagement().setVisible(true);
+    }//GEN-LAST:event_btnBooksActionPerformed
+
+    private void btnBorrowersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrowersActionPerformed
+        // Open the appropriate form:
+        new JFmainDashBoard().setVisible(false); //does nothing
+        new JFborrowersManagement().setVisible(true);
+    }//GEN-LAST:event_btnBorrowersActionPerformed
 
     /**
      * @param args the command line arguments

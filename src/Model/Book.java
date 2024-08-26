@@ -1,21 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model;
 
-/**
- *
- * @author wasch
- */
 public class Book {
     private String authorName;
     private String bookTitle;
+    private String bookID;
+    private String status;
+    private String condition;
     
-    public Book(String authorName,String bookTitle){
+//    
+//    
+    
+    public Book(String authorName,String bookTitle, String bookID, String status, String condition){
         this.authorName = authorName;
         this.bookTitle = bookTitle;
-        
+        this.bookID = bookID;
+        this.status = status;
+        this.condition = condition;
     }
     
     public String getAuthor(){
@@ -26,13 +26,13 @@ public class Book {
         return bookTitle;
     }
     
-    public Book(String author, String book){
-        this.authorName = author;
-        this.bookTitle = book;
-    }
     
     @Override
     public String toString(){
-        return "Title: "+bookTitle+", Author: "+authorName;
+        return  "ID: " + bookID
+                +", Title: "+bookTitle
+                +", Author: "+authorName
+                +", Status: " + status
+                +", Condition: " + condition;
     }
 }
