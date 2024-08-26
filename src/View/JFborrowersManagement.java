@@ -28,9 +28,10 @@ public class JFborrowersManagement extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBorrower = new javax.swing.JTable();
-        btnAddUser = new javax.swing.JButton();
-        btnDeleteUser = new javax.swing.JButton();
-        btnupdateUser = new javax.swing.JButton();
+        btnAddUserBor = new javax.swing.JButton();
+        btnDeleteBor = new javax.swing.JButton();
+        btnUpdateBor = new javax.swing.JButton();
+        btnViewbor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Borrowers management page");
@@ -38,37 +39,29 @@ public class JFborrowersManagement extends javax.swing.JFrame {
 
         tblBorrower.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Username", "Name", "Surname", "Phone Num", "Email", "Password"
+                "Username", "Name", "Surname", "PhoneNumber", "EmailAdress"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                true, true, true, true, true, false
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
         });
         jScrollPane1.setViewportView(tblBorrower);
 
-        btnAddUser.setText("Add User");
+        btnAddUserBor.setText("Add User");
 
-        btnDeleteUser.setText("Delete User");
+        btnDeleteBor.setText("Delete User");
 
-        btnupdateUser.setText("Update User");
+        btnUpdateBor.setText("Update User");
+
+        btnViewbor.setText("View Users");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,13 +71,15 @@ public class JFborrowersManagement extends javax.swing.JFrame {
                 .addGap(112, 112, 112)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAddUser)
+                        .addComponent(btnAddUserBor)
                         .addGap(18, 18, 18)
-                        .addComponent(btnDeleteUser)
+                        .addComponent(btnViewbor)
                         .addGap(18, 18, 18)
-                        .addComponent(btnupdateUser))
+                        .addComponent(btnDeleteBor)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdateBor))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,9 +88,10 @@ public class JFborrowersManagement extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddUser)
-                    .addComponent(btnDeleteUser)
-                    .addComponent(btnupdateUser))
+                    .addComponent(btnAddUserBor)
+                    .addComponent(btnDeleteBor)
+                    .addComponent(btnUpdateBor)
+                    .addComponent(btnViewbor))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
 
@@ -138,9 +134,10 @@ public class JFborrowersManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddUser;
-    private javax.swing.JButton btnDeleteUser;
-    private javax.swing.JButton btnupdateUser;
+    private javax.swing.JButton btnAddUserBor;
+    private javax.swing.JButton btnDeleteBor;
+    private javax.swing.JButton btnUpdateBor;
+    private javax.swing.JButton btnViewbor;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblBorrower;
     // End of variables declaration//GEN-END:variables
