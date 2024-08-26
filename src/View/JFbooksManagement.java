@@ -108,8 +108,9 @@ public class JFbooksManagement extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 10, Short.MAX_VALUE)
                         .addComponent(btnAdd)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(btnDelete)
                         .addGap(27, 27, 27)
                         .addComponent(tbnUpdate))
@@ -138,13 +139,16 @@ public class JFbooksManagement extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Controls");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
         jLabel3.setText("Borrowers");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -154,18 +158,15 @@ public class JFbooksManagement extends javax.swing.JFrame {
                             .addComponent(jLabel2)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3)))
                 .addContainerGap(25, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addComponent(jLabel2)
