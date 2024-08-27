@@ -1,5 +1,4 @@
 package View;
-import javax.swing.*;
 
 public class JFbooksManagement extends javax.swing.JFrame {
 
@@ -19,43 +18,44 @@ public class JFbooksManagement extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlPage = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblBooks = new javax.swing.JTable();
-        btnAdd = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        btnSaveBooks = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnCheckout = new javax.swing.JButton();
-        btnExitBook = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         javax.swing.JLabel jLabel7 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         javax.swing.JLabel jLabel8 = new javax.swing.JLabel();
         comboBoxSearch = new javax.swing.JComboBox<>();
-        javax.swing.JLabel lblBookID = new javax.swing.JLabel();
-        txtBookID = new javax.swing.JTextField();
-        javax.swing.JLabel lblBookTitle = new javax.swing.JLabel();
-        txtBookTitle = new javax.swing.JTextField();
-        javax.swing.JLabel lblBookAuthor = new javax.swing.JLabel();
-        txtBookAuthor = new javax.swing.JTextField();
-        javax.swing.JLabel lblBookStatus = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblBorrower = new javax.swing.JTable();
+        btnExit = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         txtBookStatus = new javax.swing.JTextField();
-        javax.swing.JLabel lblBookCondition = new javax.swing.JLabel();
+        javax.swing.JLabel jLabel5 = new javax.swing.JLabel();
         txtBookCondition = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel4 = new javax.swing.JLabel();
+        txtBookAuthor = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel3 = new javax.swing.JLabel();
+        txtBookTitle = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
+        txtBookISBN = new javax.swing.JTextField();
+        javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Book manager page");
-        setName("fBooksManagement"); // NOI18N
+        setTitle("Books");
 
-        tblBooks.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel7.setText("Search:");
+
+        jLabel8.setText("by");
+
+        comboBoxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Username", "Name", "Surname", "Phone Num", "Email" }));
+        comboBoxSearch.setSelectedIndex(1);
+
+        tblBorrower.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "BookIID", "Title", "Author", "Status", "Condition"
+                "ISBN", "Title", "Author", "Condition", "Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -66,208 +66,128 @@ public class JFbooksManagement extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblBooks);
+        jScrollPane1.setViewportView(tblBorrower);
 
-        btnAdd.setText("Add Book");
-        btnAdd.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnExit.setText("Back");
 
-        btnDelete.setText("Remove Book");
+        btnUpdate.setText("Update");
 
-        btnSaveBooks.setText("Save Books");
+        btnDelete.setText("Delete");
 
-        btnUpdate.setText("Edit Book");
+        btnAdd.setText("Add");
 
-        btnCheckout.setText("Quick Check out");
+        jLabel5.setText("Status");
 
-        btnExitBook.setText("Leave");
-        btnExitBook.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitBookActionPerformed(evt);
-            }
-        });
+        jLabel4.setText("Condition");
 
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("Search:");
+        jLabel3.setText("Author");
 
-        txtSearch.setText("Search");
+        jLabel2.setText("Title");
 
-        jLabel8.setText("by");
+        jLabel1.setText("ISBN");
 
-        comboBoxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Username", "Name", "Surname", "Phone Num", "Email" }));
-        comboBoxSearch.setSelectedIndex(1);
-
-        lblBookID.setText("BookID");
-
-        lblBookTitle.setText("Title");
-
-        lblBookAuthor.setText("Author");
-
-        lblBookStatus.setText("Status");
-
-        txtBookStatus.setToolTipText("Available, Unavailable");
-
-        lblBookCondition.setText("Condition");
-        lblBookCondition.setToolTipText("");
-
-        txtBookCondition.setToolTipText("New, Very Good, Good, Fair, Poor");
-
-        javax.swing.GroupLayout pnlPageLayout = new javax.swing.GroupLayout(pnlPage);
-        pnlPage.setLayout(pnlPageLayout);
-        pnlPageLayout.setHorizontalGroup(
-            pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPageLayout.createSequentialGroup()
-                .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlPageLayout.createSequentialGroup()
-                        .addContainerGap()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtBookISBN, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(txtBookTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(txtBookAuthor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(txtBookCondition, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(txtBookStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(comboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlPageLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblBookID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtBookID, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblBookTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtBookTitle, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblBookAuthor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtBookAuthor, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblBookStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtBookStatus, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblBookCondition, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtBookCondition, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlPageLayout.createSequentialGroup()
-                                .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnSaveBooks, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(56, 56, 56)
-                                .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnCheckout))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnExitBook, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(15, 15, 15))
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel8)
+                        .addGap(15, 15, 15)
+                        .addComponent(comboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(btnAdd)
+                        .addGap(24, 24, 24)
+                        .addComponent(btnDelete)
+                        .addGap(24, 24, 24)
+                        .addComponent(btnUpdate)
+                        .addGap(24, 24, 24)
+                        .addComponent(btnExit)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
-        pnlPageLayout.setVerticalGroup(
-            pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlPageLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(comboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlPageLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAdd)
-                            .addComponent(btnDelete)
-                            .addComponent(btnUpdate))
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSaveBooks)
-                            .addGroup(pnlPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnCheckout)
-                                .addComponent(btnExitBook)))
-                        .addGap(38, 38, 38))
-                    .addGroup(pnlPageLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(lblBookID)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(txtBookID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBookISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblBookTitle)
+                        .addComponent(jLabel2)
                         .addGap(8, 8, 8)
                         .addComponent(txtBookTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblBookAuthor)
+                        .addComponent(jLabel3)
                         .addGap(8, 8, 8)
                         .addComponent(txtBookAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(lblBookStatus)
-                        .addGap(8, 8, 8)
-                        .addComponent(txtBookStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblBookCondition)
+                        .addComponent(jLabel4)
                         .addGap(8, 8, 8)
                         .addComponent(txtBookCondition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addGap(8, 8, 8)
+                        .addComponent(txtBookStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd)
+                    .addComponent(btnDelete)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnExit))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(pnlPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addGap(16, 16, 16)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnExitBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitBookActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExitBookActionPerformed
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // get info to add:
-        String author = txtBookAuthor.getText();
-        String condition = txtBookCondition.getText();
-        String id = txtBookID.getText();
-        String status = txtBookStatus.getText();
-        String title = txtBookTitle.getText();
-        
-        /* WIP */ //Input into database 
-        String[] added = {};
-        String[] words = {"BookSerialID:"," book name:"," author name:"," author surname:"," status:"," condition:"};
-        for(int i= 0; i>words.length;i++){
-            JFrame f;  
-                f=new JFrame();   
-                 added[i] = JOptionPane.showInputDialog(f,"Enter "+words[i]);      
-        }
-        if (added[0].isBlank() || added[1].isBlank() || added[2].isBlank() 
-                || added[3].isBlank() || added[4].isBlank() || added[6].isBlank()){
-            JOptionPane.showMessageDialog(this, 
-                   "Please no be dumb", 
-                   "Error like totally", 
-                   JOptionPane.ERROR_MESSAGE);
-        }else{
-            //db.add(added[0], added[1], added[2], added[3], added[4], added[5]);
-            JOptionPane.showMessageDialog(this,
-                    "Succesfully added new book",
-                    "Confirmed!!",
-                    JOptionPane.ERROR_MESSAGE);
-    }//GEN-LAST:event_btnAddActionPerformed
-}
     /**
      * @param args the command line arguments
      */
-    //public static DBConnection db = new DBConnection();
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -294,7 +214,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run(){
+            public void run() {
                 new JFbooksManagement().setVisible(true);
             }
         });
@@ -302,18 +222,16 @@ public class JFbooksManagement extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnExitBook;
-    private javax.swing.JButton btnSaveBooks;
-    private javax.swing.JComboBox<String> comboBoxSearch;
-    private javax.swing.JPanel pnlPage;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblBooks;
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> comboBoxSearch;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblBorrower;
     private javax.swing.JTextField txtBookAuthor;
     private javax.swing.JTextField txtBookCondition;
-    private javax.swing.JTextField txtBookID;
+    private javax.swing.JTextField txtBookISBN;
     private javax.swing.JTextField txtBookStatus;
     private javax.swing.JTextField txtBookTitle;
     private javax.swing.JTextField txtSearch;
