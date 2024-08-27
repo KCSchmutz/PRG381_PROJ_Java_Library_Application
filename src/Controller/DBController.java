@@ -38,4 +38,8 @@ public class DBController {
             ex.printStackTrace();
         }
     }
+    
+    public void addBook(String bookSerial_ID, String bookName, String Author ){
+        
+    }
 }

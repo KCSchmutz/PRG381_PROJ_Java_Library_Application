@@ -37,6 +37,7 @@ public class JFmainDashBoard extends javax.swing.JFrame {
 
         btnBooks.setBackground(new java.awt.Color(233, 227, 220));
         btnBooks.setText("Book Management");
+        btnBooks.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnBooks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBooksActionPerformed(evt);
@@ -45,6 +46,7 @@ public class JFmainDashBoard extends javax.swing.JFrame {
 
         btnBorrowers.setBackground(new java.awt.Color(235, 231, 226));
         btnBorrowers.setText("Borrower Management");
+        btnBorrowers.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnBorrowers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBorrowersActionPerformed(evt);
@@ -53,6 +55,7 @@ public class JFmainDashBoard extends javax.swing.JFrame {
 
         btnExit.setBackground(new java.awt.Color(239, 232, 225));
         btnExit.setText("Exit");
+        btnExit.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
