@@ -56,7 +56,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="btnExitMain" min="-2" pref="101" max="-2" attributes="0"/>
+                  <Component id="btnExit" min="-2" pref="101" max="-2" attributes="0"/>
                   <EmptySpace pref="41" max="32767" attributes="0"/>
               </Group>
               <Component id="pnlMenu" max="32767" attributes="0"/>
@@ -79,7 +79,7 @@
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="btnBorrowers" min="-2" pref="42" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                  <Component id="btnExitMain" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="btnExit" min="-2" pref="41" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -114,7 +114,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrowersActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnExitMain">
+        <Component class="javax.swing.JButton" name="btnExit">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e1" green="e8" red="ef" type="rgb"/>
@@ -125,7 +125,7 @@
             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnExit"/>
           </AccessibilityProperties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitMainActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="pnlMenu">
