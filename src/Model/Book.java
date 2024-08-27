@@ -5,10 +5,7 @@ public class Book {
     private String bookTitle;
     private String bookID;
     private String status;
-    private String condition;
-    
-//    
-//    
+    private String condition; 
     
     public Book(String authorName,String bookTitle, String bookID, String status, String condition){
         this.authorName = authorName;
@@ -25,8 +22,7 @@ public class Book {
     public String getTitle(){
         return bookTitle;
     }
-    
-    
+
     @Override
     public String toString(){
         return  "ID: " + bookID

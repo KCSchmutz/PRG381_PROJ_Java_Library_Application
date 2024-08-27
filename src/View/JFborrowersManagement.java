@@ -197,6 +197,30 @@ public class JFborrowersManagement extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tbnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbnUpdateActionPerformed
+
+    private void btnExitBorrowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitBorrowerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnExitBorrowerActionPerformed
+
+    private void btnCheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCheckoutActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnSaveBorrowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveBorrowerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveBorrowerActionPerformed
+
     /**
      * @param args the command line arguments
      */

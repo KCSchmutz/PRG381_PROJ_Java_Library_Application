@@ -27,7 +27,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <Component id="pnlPage" max="32767" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -36,14 +36,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" max="32767" attributes="0"/>
+              <Component id="pnlPage" max="32767" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="pnlPage">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -63,16 +63,16 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel1" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="lblBookID" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="txtBookID" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jLabel2" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblBookTitle" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtBookTitle" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jLabel3" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblBookAuthor" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtBookAuthor" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblBookStatus" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtBookStatus" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="lblBookCondition" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtBookCondition" alignment="1" min="-2" pref="119" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -90,12 +90,21 @@
                                   </Group>
                                   <EmptySpace min="87" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tbnUpdate" max="32767" attributes="0"/>
+                                      <Component id="btnUpdate" max="32767" attributes="0"/>
                                       <Component id="btnExitBook" min="-2" pref="81" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jScrollPane1" min="-2" pref="440" max="-2" attributes="0"/>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblSearch" min="-2" pref="120" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jTextField1" min="-2" pref="371" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <Component id="lblBy" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="comboxBookSearchBy" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
@@ -120,7 +129,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnAdd" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tbnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -134,23 +143,23 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBookID" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Component id="txtBookID" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBookTitle" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Component id="txtBookTitle" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBookAuthor" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Component id="txtBookAuthor" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBookStatus" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Component id="txtBookStatus" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBookCondition" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           <Component id="txtBookCondition" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -224,30 +233,72 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnDelete">
           <Properties>
             <Property name="text" type="java.lang.String" value="Remove Book"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSaveBooks">
           <Properties>
             <Property name="text" type="java.lang.String" value="Save Books"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[104, 23]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[104, 23]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[104, 23]"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveBooksActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="tbnUpdate">
+        <Component class="javax.swing.JButton" name="btnUpdate">
           <Properties>
             <Property name="text" type="java.lang.String" value="Edit Book"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[104, 23]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[104, 23]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[104, 23]"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUpdateActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnCheckout">
           <Properties>
             <Property name="text" type="java.lang.String" value="Quick Check out"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCheckoutActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnExitBook">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Leave"/>
+            <Property name="text" type="java.lang.String" value="Back"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[104, 23]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[104, 23]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[104, 23]"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitBookActionPerformed"/>
@@ -294,7 +345,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lblBookID">
           <Properties>
             <Property name="text" type="java.lang.String" value="BookID"/>
           </Properties>
@@ -305,7 +356,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtBookID">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="lblBookTitle">
           <Properties>
             <Property name="text" type="java.lang.String" value="Title"/>
           </Properties>
@@ -316,7 +367,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtBookTitle">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="lblBookAuthor">
           <Properties>
             <Property name="text" type="java.lang.String" value="Author"/>
           </Properties>
@@ -327,7 +378,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtBookAuthor">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
+        <Component class="javax.swing.JLabel" name="lblBookStatus">
           <Properties>
             <Property name="text" type="java.lang.String" value="Status"/>
           </Properties>
@@ -341,7 +392,7 @@
             <Property name="toolTipText" type="java.lang.String" value="Available, Unavailable"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JLabel" name="lblBookCondition">
           <Properties>
             <Property name="text" type="java.lang.String" value="Condition"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>

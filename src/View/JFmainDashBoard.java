@@ -21,7 +21,7 @@ public class JFmainDashBoard extends javax.swing.JFrame {
         pnlMenuOptions = new javax.swing.JPanel();
         btnBooks = new javax.swing.JButton();
         btnBorrowers = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
+        btnExitMain = new javax.swing.JButton();
         pnlMenu = new javax.swing.JPanel();
         lblMenu = new javax.swing.JLabel();
         pnl_Image = new javax.swing.JPanel();
@@ -88,7 +88,7 @@ public class JFmainDashBoard extends javax.swing.JFrame {
             pnlMenuOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMenuOptionsLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExitMain, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(41, Short.MAX_VALUE))
             .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMenuOptionsLayout.createSequentialGroup()
@@ -107,13 +107,13 @@ public class JFmainDashBoard extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addComponent(btnBorrowers, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
-                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnExitMain, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnBooks.getAccessibleContext().setAccessibleName("btnBooks");
         btnBorrowers.getAccessibleContext().setAccessibleName("btnBorrowers");
-        btnExit.getAccessibleContext().setAccessibleName("btnExit");
+        btnExitMain.getAccessibleContext().setAccessibleName("btnExit");
 
         pnl_Image.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -203,7 +203,7 @@ public class JFmainDashBoard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBooks;
     private javax.swing.JButton btnBorrowers;
-    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnExitMain;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lbl_Image;
     private javax.swing.JPanel pnlMenu;
