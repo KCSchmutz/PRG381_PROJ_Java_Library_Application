@@ -85,6 +85,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblBorrower);
 
         btnExit.setText("Back");
+        btnExit.setBorder(new javax.swing.border.MatteBorder(null));
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -164,7 +165,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(btnUpdate)
                         .addGap(24, 24, 24)
-                        .addComponent(btnExit)))
+                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
