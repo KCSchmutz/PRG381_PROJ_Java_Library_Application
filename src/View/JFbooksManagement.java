@@ -1,4 +1,12 @@
 package View;
+import Controller.DBController;
+import Controller.DBConnection;
+import Model.Book;
+import Model.LibraryData;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 public class JFbooksManagement extends javax.swing.JFrame {
 
@@ -41,6 +49,11 @@ public class JFbooksManagement extends javax.swing.JFrame {
         javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
 
         setTitle("Books");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(218, 201, 201));
 
@@ -79,10 +92,25 @@ public class JFbooksManagement extends javax.swing.JFrame {
         });
 
         btnUpdate.setText("Update");
+        btnUpdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUpdateMouseClicked(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteMouseClicked(evt);
+            }
+        });
 
         btnAdd.setText("Add");
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddMouseClicked(evt);
+            }
+        });
 
         txtBorrowerUsername.setToolTipText("Blank if still in library");
 
@@ -181,6 +209,12 @@ public class JFbooksManagement extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txtBorrowerUsername.getAccessibleContext().setAccessibleName("txtBorrowerUsername");
+        txtBookCondition.getAccessibleContext().setAccessibleName("txtBookCondition");
+        txtBookAuthor.getAccessibleContext().setAccessibleName("txtBookAuthor");
+        txtBookTitle.getAccessibleContext().setAccessibleName("txtBookTitle");
+        txtBookISBN.getAccessibleContext().setAccessibleName("txtBookISBN");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,14 +229,103 @@ public class JFbooksManagement extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
+        jPanel1.getAccessibleContext().setAccessibleName("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private DBController DataHandler;
+    private Book book;
+    private LibraryData booksFromLib;
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         this.dispose();
         new JFmainDashBoard().setVisible(true);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        try {
+            // TODO add your handling code here:
+            
+            
+            DataHandler = new DBController();
+            
+            // ONLY EXECUTE THIS ONCE!!!
+            //DataHandler.createBooksTable();
+            
+            // IF THE PRIOR HAVE BEEN EXECUTED ONCE!!!
+            ArrayList<Book> books = DataHandler.getBooks();
+            booksFromLib = new LibraryData(books,null);
+            
+            DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+            for(String[] item : booksFromLib.getBooks()){
+                    model.addRow(item);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(JFbooksManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
+        // TODO add your handling code here:
+        String authorName, authorSurname = "";
+        authorName= txtBookAuthor.getText().split(" ")[0];
+        authorSurname= txtBookAuthor.getText().split(" ")[1];
+            
+        book= new Book(txtBookISBN.getText(),txtBookTitle.getText(),
+            authorName, authorSurname, txtBorrowerUsername.getText(),
+            txtBookCondition.getText());
+        
+        DataHandler.addBook(book);
+        ArrayList<Book> books = DataHandler.getBooks();
+        booksFromLib = new LibraryData(books,null);
+            
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        for(String[] item : booksFromLib.getBooks()){
+            model.addRow(item);
+        }
+    }//GEN-LAST:event_btnAddMouseClicked
+
+    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
+        // TODO add your handling code here:
+        String authorName, authorSurname = "";
+        authorName= txtBookAuthor.getText().split(" ")[0];
+        authorSurname= txtBookAuthor.getText().split(" ")[1];
+            
+        book= new Book(txtBookISBN.getText(),txtBookTitle.getText(),
+            authorName, authorSurname, txtBorrowerUsername.getText(),
+            txtBookCondition.getText());
+        
+        DataHandler.removeBook(book);
+        
+        ArrayList<Book> books = DataHandler.getBooks();
+        booksFromLib = new LibraryData(books,null);
+            
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        for(String[] item : booksFromLib.getBooks()){
+            model.addRow(item);
+        }
+    }//GEN-LAST:event_btnDeleteMouseClicked
+
+    private void btnUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseClicked
+        // TODO add your handling code here:
+        String authorName, authorSurname = "";
+        authorName= txtBookAuthor.getText().split(" ")[0];
+        authorSurname= txtBookAuthor.getText().split(" ")[1];
+            
+        book= new Book(txtBookISBN.getText(),txtBookTitle.getText(),
+            authorName, authorSurname, txtBorrowerUsername.getText(),
+            txtBookCondition.getText());
+        
+        DataHandler.updateBook(book);
+        ArrayList<Book> books = DataHandler.getBooks();
+        booksFromLib = new LibraryData(books,null);
+            
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        for(String[] item : booksFromLib.getBooks()){
+            model.addRow(item);
+        }
+    }//GEN-LAST:event_btnUpdateMouseClicked
 
     /**
      * @param args the command line arguments
@@ -233,8 +356,15 @@ public class JFbooksManagement extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new JFbooksManagement().setVisible(true);
+                try{
+                   DBController db = new DBController();
+                   db.createBooksTable();
+                }catch(ClassNotFoundException ex){
+                    ex.printStackTrace();
+                }
             }
         });
     }
