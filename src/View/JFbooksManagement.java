@@ -56,10 +56,15 @@ public class JFbooksManagement extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(218, 201, 201));
+        jPanel1.setForeground(new java.awt.Color(102, 0, 0));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Search:");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 0, 0));
         jLabel8.setText("by");
 
         comboBoxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ISBN", "Title", "Author", "Condition", "Status" }));
@@ -115,17 +120,27 @@ public class JFbooksManagement extends javax.swing.JFrame {
 
         txtBorrowerUsername.setToolTipText("Blank if still in library");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 0, 0));
         jLabel5.setText("BorrowerUsername");
         jLabel5.setToolTipText("");
 
         txtBookCondition.setToolTipText("New, Very Good, Good, Poor");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 0, 0));
         jLabel4.setText("Condition");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 0, 0));
         jLabel3.setText("Author");
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 0, 0));
         jLabel2.setText("Title");
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("ISBN");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -207,7 +222,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
                     .addComponent(btnDelete)
                     .addComponent(btnUpdate)
                     .addComponent(btnExit))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         txtBorrowerUsername.getAccessibleContext().setAccessibleName("txtBorrowerUsername");
@@ -225,7 +240,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(15, Short.MAX_VALUE))
         );
