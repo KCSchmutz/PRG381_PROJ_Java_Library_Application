@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.List;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -20,5 +21,11 @@ public class LibraryData {
         borrowers.add(borrower);
     }
     
+    public ArrayList getBooks(){
+        return books;
+    }
     
+    public Set getBorrowers(){
+        return borrowers;
+    }
 }
