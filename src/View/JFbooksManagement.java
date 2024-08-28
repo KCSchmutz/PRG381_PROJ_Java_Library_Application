@@ -328,6 +328,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnUpdateMouseClicked
 
+    /*This is the section I'm struggling with.*/
     /**
      * @param args the command line arguments
      */
