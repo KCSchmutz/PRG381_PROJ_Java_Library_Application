@@ -260,42 +260,39 @@ public class JFbooksManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        try {
-            // TODO add your handling code here:
+        // TODO add your handling code here:
+        ArrayList<Book> books = DataHandler.getBooks();
+        booksFromLib = new LibraryData(books,null);
             
-            
-            DataHandler = new DBController();
-            
-            // ONLY EXECUTE THIS ONCE!!!
-            //DataHandler.createBooksTable();
-            
-            // IF THE PRIOR HAVE BEEN EXECUTED ONCE!!!
-            ArrayList<Book> books = DataHandler.getBooks();
-            booksFromLib = new LibraryData(books,null);
-            
-            DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
-            for(String[] item : booksFromLib.getBooks()){
-                    model.addRow(item);
-            }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(JFbooksManagement.class.getName()).log(Level.SEVERE, null, ex);
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        for(String[] item : booksFromLib.getBooks()){
+            model.addRow(item);
         }
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
-        // TODO add your handling code here:
-        String authorName, authorSurname = "";
-        authorName= txtBookAuthor.getText().split(" ")[0];
-        authorSurname= txtBookAuthor.getText().split(" ")[1];
-            
-        book= new Book(txtBookISBN.getText(),txtBookTitle.getText(),
-            authorName, authorSurname, txtBorrowerUsername.getText(),
-            txtBookCondition.getText());
+       
+        System.out.println("add :");
+        String bookID, bookName, authorName, authorSurname,
+               borrowerUsername, bookCondition= "";
+        //Getting txtBox info:
+        bookID = txtBookISBN.getText();
+        bookName = txtBookTitle.getText();
+        authorName = txtBookAuthor.getText().split(" ")[0];
+        authorSurname = txtBookAuthor.getText().split(" ")[1];
+        borrowerUsername = txtBorrowerUsername.getText();
+        bookCondition = txtBookCondition.getText();
         
+        book = new Book(bookID,bookName,
+            authorName, authorSurname, borrowerUsername,
+            bookCondition);
+
+        System.out.println(""+book);
+
         DataHandler.addBook(book);
         ArrayList<Book> books = DataHandler.getBooks();
         booksFromLib = new LibraryData(books,null);
-            
+
         DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
         for(String[] item : booksFromLib.getBooks()){
             model.addRow(item);
@@ -304,19 +301,27 @@ public class JFbooksManagement extends javax.swing.JFrame {
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
         // TODO add your handling code here:
-        String authorName, authorSurname = "";
-        authorName= txtBookAuthor.getText().split(" ")[0];
-        authorSurname= txtBookAuthor.getText().split(" ")[1];
+        System.out.println("delete :");
+        String bookID, bookName, authorName, authorSurname,
+               borrowerUsername, bookCondition= "";
+        //Getting txtBox info:
+        bookID = txtBookISBN.getText();
+        bookName = txtBookTitle.getText();
+        authorName = txtBookAuthor.getText().split(" ")[0];
+        authorSurname = txtBookAuthor.getText().split(" ")[1];
+        borrowerUsername = txtBorrowerUsername.getText();
+        bookCondition = txtBookCondition.getText();
+        
+        book = new Book(bookID,bookName,
+            authorName, authorSurname, borrowerUsername,
+            bookCondition);
             
-        book= new Book(txtBookISBN.getText(),txtBookTitle.getText(),
-            authorName, authorSurname, txtBorrowerUsername.getText(),
-            txtBookCondition.getText());
-        
+        System.out.println(""+book);
         DataHandler.removeBook(book);
-        
+
         ArrayList<Book> books = DataHandler.getBooks();
         booksFromLib = new LibraryData(books,null);
-            
+
         DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
         for(String[] item : booksFromLib.getBooks()){
             model.addRow(item);
@@ -325,18 +330,26 @@ public class JFbooksManagement extends javax.swing.JFrame {
 
     private void btnUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseClicked
         // TODO add your handling code here:
-        String authorName, authorSurname = "";
-        authorName= txtBookAuthor.getText().split(" ")[0];
-        authorSurname= txtBookAuthor.getText().split(" ")[1];
-            
-        book= new Book(txtBookISBN.getText(),txtBookTitle.getText(),
-            authorName, authorSurname, txtBorrowerUsername.getText(),
-            txtBookCondition.getText());
+        System.out.println("update :");
+        String bookID, bookName, authorName, authorSurname,
+               borrowerUsername, bookCondition= "";
+        //Getting txtBox info:
+        bookID = txtBookISBN.getText();
+        bookName = txtBookTitle.getText();
+        authorName = txtBookAuthor.getText().split(" ")[0];
+        authorSurname = txtBookAuthor.getText().split(" ")[1];
+        borrowerUsername = txtBorrowerUsername.getText();
+        bookCondition = txtBookCondition.getText();
         
+        book = new Book(bookID,bookName,
+            authorName, authorSurname, borrowerUsername,
+            bookCondition);
+
+        System.out.println(""+book);
         DataHandler.updateBook(book);
         ArrayList<Book> books = DataHandler.getBooks();
         booksFromLib = new LibraryData(books,null);
-            
+
         DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
         for(String[] item : booksFromLib.getBooks()){
             model.addRow(item);
@@ -377,10 +390,10 @@ public class JFbooksManagement extends javax.swing.JFrame {
             public void run() {
                 new JFbooksManagement().setVisible(true);
                 try{
-                   DBController db = new DBController();
-                   db.createBooksTable();
+                   DBConnection dbCon = new DBConnection();
+                   dbCon.connect();
                 }catch(ClassNotFoundException ex){
-                    ex.printStackTrace();
+                   ex.printStackTrace();
                 }
             }
         });
