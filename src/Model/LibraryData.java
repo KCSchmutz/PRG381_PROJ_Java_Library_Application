@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.List;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -36,7 +37,15 @@ public class LibraryData {
         }
         return temp;
     }
-    
+    public String[] getBook(){
+        String[] temp = new String[5];
+        temp[0]=books.get(0).getID();
+        temp[1]=books.get(0).getTitle();
+        temp[2]=books.get(0).getAuthorName()+" "+books.get(0).getAuthorSurname();
+        temp[3]=books.get(0).getBorrowerUsername();
+        temp[4]=books.get(0).getCondition();
+        return temp;
+    }
     public String[][] getBorrowers(){
         String[][] temp = new String[borrowers.size()][5];
         int i=0;

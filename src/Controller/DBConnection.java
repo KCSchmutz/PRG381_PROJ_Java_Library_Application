@@ -53,7 +53,7 @@ public class DBConnection {
     
     public ArrayList<Book> getSearchedBooks(String data, String method){
         ArrayList<Book> books = new ArrayList<Book>();
-        String query="SELECT * FROM Books WHERE '";
+        String query="SELECT * FROM Books WHERE ";
         String[] selector= new String[2];
         selector[0]=""; 
         selector[1]="";
@@ -78,13 +78,14 @@ public class DBConnection {
                 break;     
         }
         if(selector[1].equals("")){
-            query += selector[0]+"' = '"+data+"'";
+            query += selector[0]+" = '"+data+"'";
         }else{
             dataOne = data.split(" ")[0];
             dataTwo = data.split(" ")[1];
-            query += selector[0]+"' = '"+data+"' AND";
-            query += selector[0]+"' = '"+data+"'";
+            query += selector[0]+" = '"+data+"' AND";
+            query += selector[0]+" = '"+data+"'";
         }
+        System.out.println(query);
         try(Connection conn = DriverManager.getConnection(JDBC_URL);
         PreparedStatement preState = conn.prepareStatement(query);
         ResultSet rs = preState.executeQuery()){
@@ -102,7 +103,7 @@ public class DBConnection {
 
     public Set<Borrower> getSearchedBorrowers(String data, String method){
         Set<Borrower> borrowers = new HashSet<>();
-        String query="SELECT * FROM Borrowers WHERE '";
+        String query="SELECT * FROM Borrowers WHERE ";
         String selector = "";
         switch(method){
             case "Username":
@@ -121,7 +122,8 @@ public class DBConnection {
                 selector = "EmailAddress";
                 break;     
         }
-        query += selector+"' = '"+data+"'";
+        query += selector+" = '"+data+"'";
+        System.out.println(query);
         try(Connection conn = DriverManager.getConnection(JDBC_URL);
         PreparedStatement preState = conn.prepareStatement(query);
         ResultSet rs = preState.executeQuery()){
