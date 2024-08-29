@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class JFborrowersManagement extends javax.swing.JFrame {
@@ -340,7 +341,7 @@ public class JFborrowersManagement extends javax.swing.JFrame {
             Logger.getLogger(JFbooksManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_formWindowOpened
-
+    
     private void btnAddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddUserMouseClicked
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
@@ -356,23 +357,48 @@ public class JFborrowersManagement extends javax.swing.JFrame {
         password = String.copyValueOf(pwdtxtPassword.getPassword());
         phoneNumber = txtPhoneNumber.getText();
         emailAdress = txtEmail.getText();
-        userID = ""+ username.toLowerCase().substring(1, 3)+surname.substring(1,2)+name;
-        System.out.println(userID);
+        int test=username.length()+surname.length()+name.length();
+        if (test>=6){
+            userID = ""+ username.toLowerCase().substring(1, 3)+surname.substring(1,2)+name;
+        }else{
+            userID = "NNNN"+username+surname+name;
+        }
         
-        borrower = new Borrower(userID,username,
-            name, surname, password,
-            phoneNumber,emailAdress);
+        if(username.isEmpty() || name.isEmpty() || surname.isEmpty() || phoneNumber.isEmpty() || emailAdress.isEmpty()){
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please Enter All fields",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        } else {
+            //save to db
+            if(password.isEmpty()){
+                password = "0000"; //default password
+            }
+            //db.add(isbn, title, author, status, condition);
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Data Added to DataBase your default password is 0000",
+                    "Confrim",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+            //TODO: sql insert into database
+            //insert in JTable
 
-        System.out.println(""+borrower);
+            borrower = new Borrower(userID,username,
+                name, surname, password,
+                phoneNumber,emailAdress);
 
-        DataHandler.addBorrower(borrower);
-        Set<Borrower> borrowing = DataHandler.getBorrowers();
-        borrowersFromLib = new LibraryData(null,borrowing);
+            System.out.println(""+borrower);
 
-
-        for(String[] item : borrowersFromLib.getBorrowers()){
-            System.out.println(item);
-            model.addRow(item);
+            DataHandler.addBorrower(borrower);
+            Set<Borrower> borrowing = DataHandler.getBorrowers();
+            borrowersFromLib = new LibraryData(null,borrowing);
+            for(String[] item : borrowersFromLib.getBorrowers()){
+                System.out.println(item);
+                model.addRow(item);
+            }
         }
     }//GEN-LAST:event_btnAddUserMouseClicked
 
@@ -448,17 +474,28 @@ public class JFborrowersManagement extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
-        model.getDataVector().removeAllElements();
-        revalidate();
-        
-        String data = txtSearch.getText();
-        String method = (String) comboBoxSearch.getSelectedItem();
-        Set<Borrower> borrowing = DataHandler.searchBorrowers(data, method);
-        borrowersFromLib = new LibraryData(null,borrowing);
+        int searchBy = comboBoxSearch.getSelectedIndex();
+        String searchItem = txtSearch.getText();
+        if(searchItem.isEmpty()){
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please Enter Search Item",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        } else{       
+            DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+            model.getDataVector().removeAllElements();
+            revalidate();
 
-        for(String[] item : borrowersFromLib.getBorrowers()){
-            model.addRow(item);
+            String data = txtSearch.getText();
+            String method = (String) comboBoxSearch.getSelectedItem();
+            Set<Borrower> borrowing = DataHandler.searchBorrowers(data, method);
+            borrowersFromLib = new LibraryData(null,borrowing);
+
+            for(String[] item : borrowersFromLib.getBorrowers()){
+                model.addRow(item);
+            }
         }
     }//GEN-LAST:event_btnSearchMouseClicked
 

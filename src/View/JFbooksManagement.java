@@ -5,6 +5,7 @@ import Model.LibraryData;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class JFbooksManagement extends javax.swing.JFrame {
@@ -304,18 +305,37 @@ public class JFbooksManagement extends javax.swing.JFrame {
         }
         borrowerUsername = txtBorrowerUsername.getText();
         bookCondition = txtBookCondition.getText();
-        
-        book = new Book(bookID,bookName,
-            authorName, authorSurname, borrowerUsername,
-            bookCondition);
+        if(bookID.isEmpty() || bookName.isEmpty() || authorName.isEmpty() ||  
+           borrowerUsername.isEmpty() || bookCondition.isEmpty()){
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Please Enter All fields",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        } else {
+            //save to db
+            //db.add(isbn, title, author, status, condition);
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Data Added to DataBase",
+                    "Confrim",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+            //TODO: sql insert into database
+            //insert in JTable
+            book = new Book(bookID,bookName,
+                authorName, authorSurname, borrowerUsername,
+                bookCondition);
 
-        System.out.println(""+book);
+            System.out.println(""+book);
 
-        DataHandler.addBook(book);
-        ArrayList<Book> books = DataHandler.getBooks();
-        booksFromLib = new LibraryData(books,null);
-        for(String[] item : booksFromLib.getBooks()){
-            model.addRow(item);
+            DataHandler.addBook(book);
+            ArrayList<Book> books = DataHandler.getBooks();
+            booksFromLib = new LibraryData(books,null);
+            for(String[] item : booksFromLib.getBooks()){
+                model.addRow(item);
+            }
         }
     }//GEN-LAST:event_btnAddMouseClicked
 
@@ -390,17 +410,28 @@ public class JFbooksManagement extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         // TODO add your handling code here:
+
         DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
         model.getDataVector().removeAllElements();
         revalidate();
         
         String data = txtSearch.getText();
         String method = (String) comboBoxSearch.getSelectedItem();
-        ArrayList<Book> books = DataHandler.searchBook(data, method);
-        booksFromLib = new LibraryData(books,null);
+        
+        if(data.isEmpty()||data.isEmpty()){            
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Pleae enter a search value and select an search option.",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }else{
+            ArrayList<Book> books = DataHandler.searchBook(data, method);
+            booksFromLib = new LibraryData(books,null);
 
-        for(String[] item : booksFromLib.getBooks()){
-            model.addRow(item);
+            for(String[] item : booksFromLib.getBooks()){
+                model.addRow(item);
+            }
         }
     }//GEN-LAST:event_btnSearchMouseClicked
 
