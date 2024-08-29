@@ -1,6 +1,5 @@
 package View;
 import Controller.DBController;
-import Controller.DBConnection;
 import Model.Book;
 import Model.LibraryData;
 import java.util.ArrayList;
@@ -47,6 +46,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
         javax.swing.JLabel jLabel2 = new javax.swing.JLabel();
         txtBookISBN = new javax.swing.JTextField();
         javax.swing.JLabel jLabel1 = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
 
         setTitle("Books");
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -67,8 +67,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(102, 0, 0));
         jLabel8.setText("by");
 
-        comboBoxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ISBN", "Title", "Author", "Condition", "Status" }));
-        comboBoxSearch.setSelectedIndex(1);
+        comboBoxSearch.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ISBN", "Title", "Author", "Condition", "BorrowerUsername" }));
         comboBoxSearch.setToolTipText("Select an item to search");
 
         tblBorrower.setModel(new javax.swing.table.DefaultTableModel(
@@ -143,6 +142,15 @@ public class JFbooksManagement extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("ISBN");
 
+        btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSearch.setText("<Search>");
+        btnSearch.setActionCommand("btnSearch");
+        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSearchMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -177,13 +185,15 @@ public class JFbooksManagement extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(15, 15, 15)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel8)
-                                .addGap(15, 15, 15)
-                                .addComponent(comboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSearch))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 2, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -195,7 +205,8 @@ public class JFbooksManagement extends javax.swing.JFrame {
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
                     .addComponent(comboBoxSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel8)
+                    .addComponent(btnSearch))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
@@ -245,7 +256,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("");
@@ -286,7 +297,11 @@ public class JFbooksManagement extends javax.swing.JFrame {
         bookID = txtBookISBN.getText();
         bookName = txtBookTitle.getText();
         authorName = txtBookAuthor.getText().split(" ")[0];
-        authorSurname = txtBookAuthor.getText().split(" ")[1];
+        if(txtBookAuthor.getText().split(" ").length>1){
+            authorSurname = txtBookAuthor.getText().split(" ")[1];   
+        }else{
+            authorSurname = null;   
+        }
         borrowerUsername = txtBorrowerUsername.getText();
         bookCondition = txtBookCondition.getText();
         
@@ -316,7 +331,11 @@ public class JFbooksManagement extends javax.swing.JFrame {
         bookID = txtBookISBN.getText();
         bookName = txtBookTitle.getText();
         authorName = txtBookAuthor.getText().split(" ")[0];
-        authorSurname = txtBookAuthor.getText().split(" ")[1];
+        if(txtBookAuthor.getText().split(" ").length>1){
+            authorSurname = txtBookAuthor.getText().split(" ")[1];   
+        }else{
+            authorSurname = null;   
+        }
         borrowerUsername = txtBorrowerUsername.getText();
         bookCondition = txtBookCondition.getText();
         
@@ -347,7 +366,11 @@ public class JFbooksManagement extends javax.swing.JFrame {
         bookID = txtBookISBN.getText();
         bookName = txtBookTitle.getText();
         authorName = txtBookAuthor.getText().split(" ")[0];
-        authorSurname = txtBookAuthor.getText().split(" ")[1];
+        if(txtBookAuthor.getText().split(" ").length>1){
+            authorSurname = txtBookAuthor.getText().split(" ")[1];   
+        }else{
+            authorSurname = null;   
+        }
         borrowerUsername = txtBorrowerUsername.getText();
         bookCondition = txtBookCondition.getText();
         
@@ -364,6 +387,22 @@ public class JFbooksManagement extends javax.swing.JFrame {
             model.addRow(item);
         }
     }//GEN-LAST:event_btnUpdateMouseClicked
+
+    private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        model.getDataVector().removeAllElements();
+        revalidate();
+        
+        String data = txtSearch.getText();
+        String method = (String) comboBoxSearch.getSelectedItem();
+        ArrayList<Book> books = DataHandler.searchBook(data, method);
+        booksFromLib = new LibraryData(books,null);
+
+        for(String[] item : booksFromLib.getBooks()){
+            model.addRow(item);
+        }
+    }//GEN-LAST:event_btnSearchMouseClicked
 
     /*This is the section I'm struggling with.*/
     /**
@@ -405,6 +444,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JComboBox<String> comboBoxSearch;
     private javax.swing.JPanel jPanel1;

@@ -44,21 +44,9 @@ public class DBController {
             ex.printStackTrace();
         }
     }
-    /*Create Table Books(BookSerial_ID varchar(20), BookName varchar(20), "
-                    + "AuthorName varchar(20), AuthorSurname varchar(20), "
-                    + "BorrowerUsername varchar(20), Condition varchar(20) )
-    */
+
     
-    /*
-    I would also recommend using prepared statements, not only is it more readable but also will prevent you from SQL injection attacks. More info here
 
-Example:
-
-preparedStatement = connection.prepareStatement("INSERT INTO EMPLOYEES (fname, lname, email) VALUES (?, ?, ?)");
-preparedStatement.setString(1, person.getFName());
-preparedStatement.setString(2, person.getLName());
-preparedStatement.setString(3, person.getEmail());
-    */
     public void addBook(Book book){
         try{
             
@@ -72,12 +60,7 @@ preparedStatement.setString(3, person.getEmail());
             System.out.println("Data could not be added to table Books in database libraryManagementDB.");
         }
     }
-    /*
-                    String query = "Create Table Borrowers(Borrower_ID varchar(20), Username varchar(20), "
-                    + "Name varchar(20), Surname varchar(20), "
-                    + "Password varchar(20), PhoneNumber varchar(20), "
-                    + "EmailAddress varchar(20) )"
-    */
+
     public void addBorrower(Borrower borrower){
         try{
             String query= "INSERT INTO Borrowers(Borrower_ID, Username, Name, Surname, Password, "
@@ -143,7 +126,27 @@ preparedStatement.setString(3, person.getEmail());
             System.out.println("The data couldn't be updated to table Borrowers in database libraryManagementDB.");
         } 
     }
-  
+     /*                 Create Table Books(BookSerial_ID varchar(20), BookName varchar(20), "
+                    + "AuthorName varchar(20), AuthorSurname varchar(20), "
+                    + "BorrowerUsername varchar(20), Condition varchar(20) )
+    */
+    /*ISBN
+Title
+Author
+Condition
+Status*/
+    public ArrayList<Book> searchBook(String data, String method){
+        return database.getSearchedBooks(data, method);
+    }
+    /*
+                    String query = "Create Table Borrowers(Borrower_ID varchar(20), Username varchar(20), "
+                    + "Name varchar(20), Surname varchar(20), "
+                    + "Password varchar(20), PhoneNumber varchar(20), "
+                    + "EmailAddress varchar(20) )"
+    */
+    public Set<Borrower> searchBorrowers(String data, String method){
+        return database.getSearchedBorrowers(data, method);
+    }
     public ArrayList<Book> getBooks(){
         return database.getBooks();
     }

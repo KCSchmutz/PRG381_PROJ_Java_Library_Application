@@ -30,7 +30,7 @@ public class LibraryData {
         for (int i=0;i<books.size();i++){
             temp[i][0]=books.get(i).getID();
             temp[i][1]=books.get(i).getTitle();
-            temp[i][2]=books.get(i).getAuthorName()+books.get(i).getAuthorSurname();
+            temp[i][2]=books.get(i).getAuthorName()+" "+books.get(i).getAuthorSurname();
             temp[i][3]=books.get(i).getBorrowerUsername();
             temp[i][4]=books.get(i).getCondition();
         }
