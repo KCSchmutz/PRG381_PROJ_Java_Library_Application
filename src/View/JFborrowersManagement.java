@@ -149,7 +149,7 @@ public class JFborrowersManagement extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblBorrower);
 
-        btnExit.setText("Back");
+        btnExit.setText("<= Back");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -163,15 +163,15 @@ public class JFborrowersManagement extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(pwdtxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addGap(46, 46, 46)
                 .addComponent(btnAddUser)
                 .addGap(18, 18, 18)
                 .addComponent(btnDeleteUser)
                 .addGap(18, 18, 18)
                 .addComponent(btnupdateUser)
-                .addGap(18, 18, 18)
-                .addComponent(btnExit)
-                .addGap(73, 73, 73))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(28, 28, 28)
@@ -203,18 +203,18 @@ public class JFborrowersManagement extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(316, Short.MAX_VALUE)
+                .addContainerGap(324, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(pwdtxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnExit)
-                            .addComponent(btnupdateUser)
                             .addComponent(btnAddUser)
-                            .addComponent(btnDeleteUser))
-                        .addGap(35, 35, 35))))
+                            .addComponent(btnDeleteUser)
+                            .addComponent(btnupdateUser)
+                            .addComponent(btnExit))
+                        .addGap(27, 27, 27))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
