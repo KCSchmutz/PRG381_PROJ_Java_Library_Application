@@ -120,8 +120,8 @@ preparedStatement.setString(3, person.getEmail());
             String query= "UPDATE Books SET BookSerial_ID = '"+book.getID()+"', "
                     + "BookName = '"+book.getTitle()+"', AuthorName = '"+book.getAuthorName()+"', "
                     + "AuthorSurname = '"+book.getAuthorSurname()+"', BorrowerUsername = '"+book.getBorrowerUsername()+"', "
-                    + "Condition = '"+book.getCondition()+"', "
-                    + "WHERE BookSerial_ID = '"+book.getID()+"';";
+                    + "Condition = '"+book.getCondition()+"' "
+                    + "WHERE BookSerial_ID = '"+book.getID()+"'";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -134,8 +134,8 @@ preparedStatement.setString(3, person.getEmail());
             String query= "UPDATE Books SET Borrower_ID = '"+borrower.getUserID()+"', "
                     + "Username = '"+borrower.getUsername()+"', Name = '"+borrower.getName()+"', "
                     + "Surname = '"+borrower.getSurname()+"', Password = '"+borrower.getPassword()+"', "
-                    + "PhoneNumber = '"+borrower.getPhoneNumber()+"', EmailAddress = '"+borrower.getEmailAddress()+"', "
-                    + "WHERE Borrower_ID = '"+borrower.getUserID()+"';";
+                    + "PhoneNumber = '"+borrower.getPhoneNumber()+"', EmailAddress = '"+borrower.getEmailAddress()+"' "
+                    + "WHERE Borrower_ID = '"+borrower.getUserID()+"'";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();
