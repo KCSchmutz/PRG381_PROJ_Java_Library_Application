@@ -457,7 +457,7 @@ public class JFborrowersManagement extends javax.swing.JFrame {
         Set<Borrower> borrowing = DataHandler.searchBorrowers(data, method);
         borrowersFromLib = new LibraryData(null,borrowing);
 
-        for(String[] item : borrowersFromLib.getBooks()){
+        for(String[] item : borrowersFromLib.getBorrowers()){
             model.addRow(item);
         }
     }//GEN-LAST:event_btnSearchMouseClicked
