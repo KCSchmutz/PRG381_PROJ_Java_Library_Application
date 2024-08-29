@@ -16,6 +16,7 @@ public class DBController {
     private DBConnection database;
     
     public DBController() throws ClassNotFoundException{
+        this.database = new DBConnection();
         this.database.connect();
     }
     
