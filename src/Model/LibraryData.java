@@ -38,17 +38,15 @@ public class LibraryData {
     }
     
     public String[][] getBorrowers(){
-        String[][] temp = new String[borrowers.size()][7];
-        Borrower[] borrowing = new Borrower[borrowers.size()];
-        borrowing = (Borrower[]) borrowers.toArray();
-        for (int i=0;i<borrowers.size();i++){
-            temp[i][0] = borrowing[i].getUserID();
-            temp[i][1] = borrowing[i].getUsername();
-            temp[i][2] = borrowing[i].getName();
-            temp[i][3] = borrowing[i].getSurname();
-            temp[i][4] = borrowing[i].getPassword();
-            temp[i][5] = borrowing[i].getPhoneNumber();
-            temp[i][5] = borrowing[i].getEmailAddress();
+        String[][] temp = new String[borrowers.size()][5];
+        int i=0;
+        for(Borrower borrowed : borrowers){
+            temp[i][0] = borrowed.getUsername();
+            temp[i][1] = borrowed.getName();
+            temp[i][2] = borrowed.getSurname();
+            temp[i][3] = borrowed.getPhoneNumber();
+            temp[i][4] = borrowed.getEmailAddress();
+            i++;
         }
         return temp;
     }

@@ -80,13 +80,14 @@ preparedStatement.setString(3, person.getEmail());
     */
     public void addBorrower(Borrower borrower){
         try{
-            String query= "INSERT INTO Borrower(Borrower_ID, Username, Name, Surname, Password, "
+            String query= "INSERT INTO Borrowers(Borrower_ID, Username, Name, Surname, Password, "
                     + "PhoneNumber, EmailAddress) "
                     + "VALUES('"+borrower.getUserID()+"', "
-                    + "'"+borrower.getUsername()+"', '"+borrower.getName()+"', '"+borrower.getSurname()+"'"
-                    + "'"+borrower.getPassword()+"', '"+borrower.getPhoneNumber()+"'"
+                    + "'"+borrower.getUsername()+"', '"+borrower.getName()+"', '"+borrower.getSurname()+"', "
+                    + "'"+borrower.getPassword()+"', '"+borrower.getPhoneNumber()+"', "
                     + "'"+borrower.getEmailAddress()+"')";
             database.con.createStatement().execute(query);
+            System.out.println(query+"\n <-added");
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println("Data could not be added to table Borrowers in database libraryManagementDB.");
@@ -106,8 +107,8 @@ preparedStatement.setString(3, person.getEmail());
 
     public void removeBorrower(Borrower borrower){
          try{
-            String query= "DELETE FROM Books "
-                    + "WHERE Borrower_ID = '"+borrower.getUserID()+"'";
+            String query= "DELETE FROM Borrowers "
+                    + "WHERE Username = '"+borrower.getUsername()+"'";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -131,11 +132,11 @@ preparedStatement.setString(3, person.getEmail());
   
     public void updateBorrower(Borrower borrower){
         try{
-            String query= "UPDATE Books SET Borrower_ID = '"+borrower.getUserID()+"', "
+            String query= "UPDATE Borrowers SET Borrower_ID = '"+borrower.getUserID()+"', "
                     + "Username = '"+borrower.getUsername()+"', Name = '"+borrower.getName()+"', "
                     + "Surname = '"+borrower.getSurname()+"', Password = '"+borrower.getPassword()+"', "
                     + "PhoneNumber = '"+borrower.getPhoneNumber()+"', EmailAddress = '"+borrower.getEmailAddress()+"' "
-                    + "WHERE Borrower_ID = '"+borrower.getUserID()+"'";
+                    + "WHERE Username = '"+borrower.getUsername()+"'";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();

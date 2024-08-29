@@ -1,7 +1,20 @@
 package View;
 
+import Controller.DBController;
+import Model.Book;
+import Model.Borrower;
+import Model.LibraryData;
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 public class JFborrowersManagement extends javax.swing.JFrame {
 
+    private DBController DataHandler;
+    private Borrower borrower;
+    private LibraryData borrowersFromLib;
     /**
      * Creates new form JFborrowersManagement
      */
@@ -45,6 +58,11 @@ public class JFborrowersManagement extends javax.swing.JFrame {
         setTitle("Borrowers management page");
         setBackground(new java.awt.Color(218,201,201));
         setName("fBorrowersManagement"); // NOI18N
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(218, 201, 201));
 
@@ -93,10 +111,25 @@ public class JFborrowersManagement extends javax.swing.JFrame {
         lblSearch.setText("Username");
 
         btnupdateUser.setText("Update User");
+        btnupdateUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnupdateUserMouseClicked(evt);
+            }
+        });
 
         btnDeleteUser.setText("Delete User");
+        btnDeleteUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteUserMouseClicked(evt);
+            }
+        });
 
         btnAddUser.setText("Add User");
+        btnAddUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddUserMouseClicked(evt);
+            }
+        });
 
         tblBorrower.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -219,6 +252,8 @@ public class JFborrowersManagement extends javax.swing.JFrame {
                     .addContainerGap(43, Short.MAX_VALUE)))
         );
 
+        pwdtxtPassword.getAccessibleContext().setAccessibleName("txtPassword");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -252,7 +287,12 @@ public class JFborrowersManagement extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteActionPerformed
-
+    /*
+                    String query = "Create Table Borrowers(Borrower_ID varchar(20), Username varchar(20), "
+                    + "Name varchar(20), Surname varchar(20), "
+                    + "Password varchar(20), PhoneNumber varchar(20), "
+                    + "EmailAddress varchar(20) )"
+    */
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddActionPerformed
@@ -270,6 +310,121 @@ public class JFborrowersManagement extends javax.swing.JFrame {
     private void txtSurnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSurnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSurnameActionPerformed
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            DataHandler = new DBController();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(JFbooksManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnAddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddUserMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        model.getDataVector().removeAllElements();
+        revalidate();
+        System.out.println("add :");
+        String userID, username, name, surname,
+               password, phoneNumber, emailAdress="";
+        //Getting txtBox info:
+        username = txtUsername.getText();
+        name = txtName.getText();
+        surname = txtSurname.getText();
+        password = String.copyValueOf(pwdtxtPassword.getPassword());
+        phoneNumber = txtPhoneNumber.getText();
+        emailAdress = txtEmail.getText();
+        userID = ""+ username.toLowerCase().substring(1, 3)+surname.substring(1,2)+name;
+        System.out.println(userID);
+        
+        borrower = new Borrower(userID,username,
+            name, surname, password,
+            phoneNumber,emailAdress);
+
+        System.out.println(""+borrower);
+
+        DataHandler.addBorrower(borrower);
+        Set<Borrower> borrowing = DataHandler.getBorrowers();
+        borrowersFromLib = new LibraryData(null,borrowing);
+
+
+        for(String[] item : borrowersFromLib.getBorrowers()){
+            System.out.println(item);
+            model.addRow(item);
+        }
+    }//GEN-LAST:event_btnAddUserMouseClicked
+
+    private void btnDeleteUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteUserMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        model.getDataVector().removeAllElements();
+        revalidate();
+        System.out.println("add :");
+        String userID, username, name, surname,
+               password, phoneNumber, emailAdress="";
+        //Getting txtBox info:
+        username = txtUsername.getText();
+        name = txtName.getText();
+        surname = txtSurname.getText();
+        password = String.copyValueOf(pwdtxtPassword.getPassword());
+        phoneNumber = txtPhoneNumber.getText();
+        emailAdress = txtEmail.getText();
+        userID = ""+ username.toLowerCase().substring(1, 3)+surname.substring(1,2)+name;
+        System.out.println(userID);
+        
+        borrower = new Borrower(userID,username,
+            name, surname, password,
+            phoneNumber,emailAdress);
+
+        System.out.println(""+borrower);
+
+        DataHandler.removeBorrower(borrower);
+        Set<Borrower> borrowing = DataHandler.getBorrowers();
+        borrowersFromLib = new LibraryData(null,borrowing);
+
+
+        for(String[] item : borrowersFromLib.getBorrowers()){
+            System.out.println(item);
+            model.addRow(item);
+        }
+    }//GEN-LAST:event_btnDeleteUserMouseClicked
+
+    private void btnupdateUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnupdateUserMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        model.getDataVector().removeAllElements();
+        revalidate();
+        System.out.println("add :");
+        String userID, username, name, surname,
+               password, phoneNumber, emailAdress="";
+        //Getting txtBox info:
+        username = txtUsername.getText();
+        name = txtName.getText();
+        surname = txtSurname.getText();
+        password = String.copyValueOf(pwdtxtPassword.getPassword());
+        phoneNumber = txtPhoneNumber.getText();
+        emailAdress = txtEmail.getText();
+        userID = ""+ username.toLowerCase().substring(1, 3)+surname.substring(1,2)+name;
+        System.out.println(userID);
+        
+        borrower = new Borrower(userID,username,
+            name, surname, password,
+            phoneNumber,emailAdress);
+
+        System.out.println(""+borrower);
+
+        DataHandler.updateBorrower(borrower);
+        Set<Borrower> borrowing = DataHandler.getBorrowers();
+        borrowersFromLib = new LibraryData(null,borrowing);
+
+
+        for(String[] item : borrowersFromLib.getBorrowers()){
+            System.out.println(item);
+            model.addRow(item);
+        }      
+    }//GEN-LAST:event_btnupdateUserMouseClicked
 
     /**
      * @param args the command line arguments

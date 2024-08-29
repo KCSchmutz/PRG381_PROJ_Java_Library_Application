@@ -272,7 +272,10 @@ public class JFbooksManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
-       
+    
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        model.getDataVector().removeAllElements();
+        revalidate();
         System.out.println("add :");
         String bookID, bookName, authorName, authorSurname,
                borrowerUsername, bookCondition= "";
@@ -293,8 +296,6 @@ public class JFbooksManagement extends javax.swing.JFrame {
         DataHandler.addBook(book);
         ArrayList<Book> books = DataHandler.getBooks();
         booksFromLib = new LibraryData(books,null);
-
-        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
         for(String[] item : booksFromLib.getBooks()){
             model.addRow(item);
         }
@@ -302,6 +303,9 @@ public class JFbooksManagement extends javax.swing.JFrame {
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        model.getDataVector().removeAllElements();
+        revalidate();
         System.out.println("delete :");
         String bookID, bookName, authorName, authorSurname,
                borrowerUsername, bookCondition= "";
@@ -323,7 +327,6 @@ public class JFbooksManagement extends javax.swing.JFrame {
         ArrayList<Book> books = DataHandler.getBooks();
         booksFromLib = new LibraryData(books,null);
 
-        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
         for(String[] item : booksFromLib.getBooks()){
             model.addRow(item);
         }
@@ -331,6 +334,9 @@ public class JFbooksManagement extends javax.swing.JFrame {
 
     private void btnUpdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUpdateMouseClicked
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
+        model.getDataVector().removeAllElements();
+        revalidate();
         System.out.println("update :");
         String bookID, bookName, authorName, authorSurname,
                borrowerUsername, bookCondition= "";
@@ -351,7 +357,6 @@ public class JFbooksManagement extends javax.swing.JFrame {
         ArrayList<Book> books = DataHandler.getBooks();
         booksFromLib = new LibraryData(books,null);
 
-        DefaultTableModel model = (DefaultTableModel) tblBorrower.getModel();
         for(String[] item : booksFromLib.getBooks()){
             model.addRow(item);
         }

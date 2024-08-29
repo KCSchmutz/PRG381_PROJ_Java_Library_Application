@@ -48,7 +48,8 @@ public class Borrower {
     }
     @Override
     public String toString(){
-        return "Username: "+username
+        return "UserID: " + userID
+                +", Username: "+username
                 +", Name: "+name
                 +", Surname: "+surname
                 +", Password: "+password

@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.sql.ResultSet;
+import java.util.HashSet;
 import java.util.Set;
 public class DBConnection {
     
@@ -52,8 +53,8 @@ public class DBConnection {
         
 
     public Set<Borrower> getBorrower(){
-        Set<Borrower> borrowers = null;
-        String query= "SELECT * FROM Borrower";
+        Set<Borrower> borrowers = new HashSet<>();
+        String query= "SELECT * FROM Borrowers";
         try(Connection conn = DriverManager.getConnection(JDBC_URL);
         PreparedStatement preState = conn.prepareStatement(query);
         ResultSet rs = preState.executeQuery()){
