@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class JFborrowersManagement extends javax.swing.JFrame {
-
+/*Local variables*/
     private DBController DataHandler;
     private Borrower borrower;
     private LibraryData borrowersFromLib;
