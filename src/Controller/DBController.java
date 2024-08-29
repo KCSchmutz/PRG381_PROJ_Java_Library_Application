@@ -42,12 +42,18 @@ public class DBController {
             ex.printStackTrace();
         }
     }
+    /*Create Table Books(BookSerial_ID varchar(20), BookName varchar(20), "
+                    + "AuthorName varchar(20), AuthorSurname varchar(20), "
+                    + "BorrowerUsername varchar(20), Condition varchar(20) )
+    */
     
     public void addBook(Book book){
         try{
-            String query= "INSERT INTO Books VALUES('"+book.getID()+"', "
+            String query= "INSERT INTO Books(BookSerial_ID, BookName, AuthorName, AuthorSurname"
+                    + " BorrowerUsername, Condition) "
+                    + "VALUES('"+book.getID()+"', "
                     + "'"+book.getAuthorName()+"', '"+book.getAuthorName()+"', '"+book.getAuthorSurname()+"'"
-                    + "'"+book.getBorrowerUsername()+"', '"+book.getCondition()+"')";
+                    + "'"+book.getBorrowerUsername()+"', '"+book.getCondition()+"');";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -57,10 +63,10 @@ public class DBController {
     
     public void addBorrower(Borrower borrower){
         try{
-            String query= "INSERT INTO Borrower VALUES('"+borrower.getUserID()+"', "
+            String query= "INSERT INTO Borrower() VALUES('"+borrower.getUserID()+"', "
                     + "'"+borrower.getUsername()+"', '"+borrower.getName()+"', '"+borrower.getSurname()+"'"
                     + "'"+borrower.getPassword()+"', '"+borrower.getPhoneNumber()+"'"
-                    + "'"+borrower.getEmailAddress()+"')";
+                    + "'"+borrower.getEmailAddress()+"');";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();

@@ -264,7 +264,7 @@ public class JFbooksManagement extends javax.swing.JFrame {
             // TODO add your handling code here:
             DataHandler = new DBController();
             //Only execute this once!!!->
-            DataHandler.createBooksTable();
+            //DataHandler.createBooksTable();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(JFbooksManagement.class.getName()).log(Level.SEVERE, null, ex);
         }
