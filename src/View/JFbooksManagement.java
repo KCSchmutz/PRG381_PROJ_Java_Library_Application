@@ -387,15 +387,8 @@ public class JFbooksManagement extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
             public void run() {
                 new JFbooksManagement().setVisible(true);
-                try{
-                   DBConnection dbCon = new DBConnection();
-                   dbCon.connect();
-                }catch(ClassNotFoundException ex){
-                   ex.printStackTrace();
-                }
             }
         });
     }

@@ -6,8 +6,10 @@ package Controller;
 import java.sql.SQLException;
 import Model.Book;
 import Model.Borrower;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Set;
+import org.apache.derby.iapi.sql.ResultSet;
 /**
  *
  * @author wasch
@@ -47,26 +49,43 @@ public class DBController {
                     + "BorrowerUsername varchar(20), Condition varchar(20) )
     */
     
+    /*
+    I would also recommend using prepared statements, not only is it more readable but also will prevent you from SQL injection attacks. More info here
+
+Example:
+
+preparedStatement = connection.prepareStatement("INSERT INTO EMPLOYEES (fname, lname, email) VALUES (?, ?, ?)");
+preparedStatement.setString(1, person.getFName());
+preparedStatement.setString(2, person.getLName());
+preparedStatement.setString(3, person.getEmail());
+    */
     public void addBook(Book book){
         try{
-            String query= "INSERT INTO Books(BookSerial_ID, BookName, AuthorName, AuthorSurname"
+            
+            String query= "INSERT INTO Books(BookSerial_ID, BookName, AuthorName, AuthorSurname,"
                     + " BorrowerUsername, Condition) "
-                    + "VALUES('"+book.getID()+"', "
-                    + "'"+book.getTitle()+"', '"+book.getAuthorName()+"', '"+book.getAuthorSurname()+"'"
-                    + "'"+book.getBorrowerUsername()+"', '"+book.getCondition()+"');";
+                    + "VALUES('"+book.getID()+"', '"+book.getTitle()+"', '"+book.getAuthorName()+"', "
+                    + "'"+book.getAuthorSurname()+"', '"+book.getBorrowerUsername()+"', '"+book.getCondition()+"')";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();
             System.out.println("Data could not be added to table Books in database libraryManagementDB.");
         }
     }
-    
+    /*
+                    String query = "Create Table Borrowers(Borrower_ID varchar(20), Username varchar(20), "
+                    + "Name varchar(20), Surname varchar(20), "
+                    + "Password varchar(20), PhoneNumber varchar(20), "
+                    + "EmailAddress varchar(20) )"
+    */
     public void addBorrower(Borrower borrower){
         try{
-            String query= "INSERT INTO Borrower() VALUES('"+borrower.getUserID()+"', "
+            String query= "INSERT INTO Borrower(Borrower_ID, Username, Name, Surname, Password, "
+                    + "PhoneNumber, EmailAddress) "
+                    + "VALUES('"+borrower.getUserID()+"', "
                     + "'"+borrower.getUsername()+"', '"+borrower.getName()+"', '"+borrower.getSurname()+"'"
                     + "'"+borrower.getPassword()+"', '"+borrower.getPhoneNumber()+"'"
-                    + "'"+borrower.getEmailAddress()+"');";
+                    + "'"+borrower.getEmailAddress()+"')";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -76,10 +95,8 @@ public class DBController {
     
     public void removeBook(Book book){
         try{
-            String query= "DELETE FROM Books WHERE BookSerial_ID = '"+book.getID()+"' OR "
-                    + "BookName = '"+book.getTitle()+"' OR AuthorName = '"+book.getAuthorName()+"' OR "
-                    + "AuthorSurname = '"+book.getAuthorSurname()+"' OR BorrowerUsername = '"+book.getBorrowerUsername()+"' OR "
-                    + "Condition = '"+book.getCondition()+"'";
+            String query= "DELETE FROM Books "
+                    + "WHERE BookSerial_ID = '"+book.getID()+"'";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -89,10 +106,8 @@ public class DBController {
 
     public void removeBorrower(Borrower borrower){
          try{
-            String query= "DELETE FROM Books WHERE Borrower_ID = '"+borrower.getUserID()+"' OR "
-                    + "Username = '"+borrower.getUsername()+"' OR Name = '"+borrower.getName()+"' OR "
-                    + "Surname = '"+borrower.getSurname()+"' OR Password = '"+borrower.getPhoneNumber()+"' OR "
-                    + "PhoneNumber = '"+borrower.getPhoneNumber()+"' OR Password = '"+borrower.getEmailAddress()+"'";
+            String query= "DELETE FROM Books "
+                    + "WHERE Borrower_ID = '"+borrower.getUserID()+"'";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -106,7 +121,7 @@ public class DBController {
                     + "BookName = '"+book.getTitle()+"', AuthorName = '"+book.getAuthorName()+"', "
                     + "AuthorSurname = '"+book.getAuthorSurname()+"', BorrowerUsername = '"+book.getBorrowerUsername()+"', "
                     + "Condition = '"+book.getCondition()+"', "
-                    + "WHERE BookSerial_ID = '"+book.getID()+"' AND BorrowerUsername = '"+book.getBorrowerUsername()+"';";
+                    + "WHERE BookSerial_ID = '"+book.getID()+"';";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();
@@ -120,7 +135,7 @@ public class DBController {
                     + "Username = '"+borrower.getUsername()+"', Name = '"+borrower.getName()+"', "
                     + "Surname = '"+borrower.getSurname()+"', Password = '"+borrower.getPassword()+"', "
                     + "PhoneNumber = '"+borrower.getPhoneNumber()+"', EmailAddress = '"+borrower.getEmailAddress()+"', "
-                    + "WHERE BookSerial_ID = '"+borrower.getName()+"' AND BorrowerUsername = '"+borrower.getSurname()+"';";
+                    + "WHERE Borrower_ID = '"+borrower.getUserID()+"';";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
             ex.printStackTrace();
