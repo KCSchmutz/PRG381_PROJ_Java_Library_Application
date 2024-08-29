@@ -26,14 +26,13 @@ public class LibraryData {
                 rs.getString("Name"),rs.getString("Surname"),rs.getString("Password"),
                 rs.getString("PhoneNumber"),rs.getString("EmailAddress")));*/
     public String[][] getBooks(){
-        String[][] temp = new String[books.size()][6];
+        String[][] temp = new String[books.size()][5];
         for (int i=0;i<books.size();i++){
             temp[i][0]=books.get(i).getID();
             temp[i][1]=books.get(i).getTitle();
-            temp[i][2]=books.get(i).getAuthorName();
-            temp[i][3]=books.get(i).getAuthorSurname();
-            temp[i][4]=books.get(i).getBorrowerUsername();
-            temp[i][5]=books.get(i).getCondition();
+            temp[i][2]=books.get(i).getAuthorName()+books.get(i).getAuthorSurname();
+            temp[i][3]=books.get(i).getBorrowerUsername();
+            temp[i][4]=books.get(i).getCondition();
         }
         return temp;
     }

@@ -52,7 +52,7 @@ public class DBController {
             String query= "INSERT INTO Books(BookSerial_ID, BookName, AuthorName, AuthorSurname"
                     + " BorrowerUsername, Condition) "
                     + "VALUES('"+book.getID()+"', "
-                    + "'"+book.getAuthorName()+"', '"+book.getAuthorName()+"', '"+book.getAuthorSurname()+"'"
+                    + "'"+book.getTitle()+"', '"+book.getAuthorName()+"', '"+book.getAuthorSurname()+"'"
                     + "'"+book.getBorrowerUsername()+"', '"+book.getCondition()+"');";
             database.con.createStatement().execute(query);
         }catch(SQLException ex){
